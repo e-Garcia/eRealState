@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">eReal State</string>
+    <string name="title_house_detail">House Detail</string>
+    <string name="bathroom_icon_content_description">Bathroom icon</string>
+    <string name="listing_image_content_description">Listing image preview</string>
+    <string name="listing_type_sale_header">SALE</string>
+    <string name="listing_type_rent_header">RENT</string>
+    <string name="price">$%1$d</string>
+    <string name="bedrooms">%1$dbd</string>
+    <string name="bathrooms">%1$.1fba</string>
+    <string name="size">%1$d sqft</string>
+    <string name="street">%1$s %2$s</string>
+    <string name="city">%1$s, %2$s</string>
+
+    <!-- Sample design preview data -->
+    <string name="sample_price">$479,900</string>
+    <string name="sample_listing_type">NEW</string>
+    <string name="sample_bedrooms">2bd</string>
+    <string name="sample_bathrooms">2ba</string>
+    <string name="sample_address">8744 E Saratoga Pl</string>
+    <string name="sample_city">Hampden South, Denver, CO</string>
+</resources>
