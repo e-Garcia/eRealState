@@ -11,6 +11,7 @@
     <string name="size">%1$d sqft</string>
     <string name="street">%1$s %2$s</string>
     <string name="city">%1$s, %2$s</string>
+    <string name="error_message_generic">Oops! looks like something went wrong. Please try again later.</string>
 
     <!-- Sample design preview data -->
     <string name="sample_price">$479,900</string>

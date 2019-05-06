@@ -3,7 +3,7 @@ package com.egarcia.assignment.service.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.egarcia.assignment.service.model.Listing
-import com.google.android.material.snackbar.Snackbar
+import com.egarcia.assignment.utils.BASE_URL
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -11,7 +11,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class ListingRepository {
+
     private val listingApi: ListingApi
+
     companion object {
         private lateinit var listingRepository : ListingRepository
 
@@ -25,7 +27,7 @@ class ListingRepository {
 
     init {
         val retrofit = Retrofit.Builder()
-                .baseUrl(ListingApi.HTTPS_API_URL)
+                .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

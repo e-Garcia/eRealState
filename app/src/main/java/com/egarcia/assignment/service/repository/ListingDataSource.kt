@@ -7,6 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListingDataSource : PageKeyedDataSource<Int, Listing>() {
+
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, Listing>) {
         // Not required
     }

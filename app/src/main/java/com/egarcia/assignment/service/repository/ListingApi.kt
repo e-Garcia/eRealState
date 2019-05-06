@@ -10,10 +10,6 @@ import retrofit2.http.Query
  */
 interface ListingApi {
 
-    companion object {
-        val HTTPS_API_URL = "https://trulia-interview-challenge.herokuapp.com"
-    }
-
     /**
      * Get the list of unit listings from the API
      */

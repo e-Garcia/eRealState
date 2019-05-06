@@ -7,12 +7,13 @@
 
     <ImageView
         android:id="@+id/image_preview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        android:background="@drawable/ic_house"
         android:scaleType="centerCrop"
         android:contentDescription="@string/listing_image_content_description"/>
 
