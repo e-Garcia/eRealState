@@ -13,8 +13,19 @@ import com.egarcia.assignment.service.repository.ListingRepository
  */
 class ListingViewModel : BaseViewModel() {
 
+    private val mListings : LiveData<PagedList<Listing>>
+
     companion object {
         const val PAGE_SIZE = 5
+    }
+
+    init {
+        val config = PagedList.Config.Builder()
+                .setInitialLoadSizeHint(ListingViewModel.PAGE_SIZE)
+                .setPageSize(ListingViewModel.PAGE_SIZE)
+                .build()
+
+        mListings = listBuilder(config).build()
     }
 
     fun allListings() : LiveData<List<Listing>> {
@@ -26,12 +37,7 @@ class ListingViewModel : BaseViewModel() {
     }
 
     fun paginatedListings() : LiveData<PagedList<Listing>> {
-        val config = PagedList.Config.Builder()
-                .setInitialLoadSizeHint(ListingViewModel.PAGE_SIZE)
-                .setPageSize(ListingViewModel.PAGE_SIZE)
-                .build()
-
-        return listBuilder(config).build()
+        return mListings
     }
 
     private fun listBuilder(config : PagedList.Config) : LivePagedListBuilder<Int, Listing> {
