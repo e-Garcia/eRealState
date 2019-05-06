@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.egarcia.assignment.R
+import com.egarcia.assignment.utils.ERROR
 
 import com.egarcia.assignment.view.adapter.ListingAdapter
 import com.egarcia.assignment.viewmodel.ListingViewModel
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_house_list.*
 import kotlinx.android.synthetic.main.house_list.*
 
@@ -38,9 +40,16 @@ class ListingListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val listingsLiveData = mViewModel.paginatedListings()
+        val loadingLiveData = mViewModel.loadingStatus()
 
         listingsLiveData.observe(this, Observer { pagedList ->
             mAdapter.submitList(pagedList)
+        })
+
+        loadingLiveData.observe(this, Observer { loadingStatus ->
+            if (loadingStatus == ERROR) {
+                Snackbar.make(coordinator, R.string.error_message_generic, Snackbar.LENGTH_LONG)
+            }
         })
 
     }
