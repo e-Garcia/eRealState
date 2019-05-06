@@ -6,6 +6,9 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+/**
+ * Source of listings for the pagination library
+ */
 class ListingDataSource : PageKeyedDataSource<Int, Listing>() {
 
     override fun loadBefore(params: LoadParams<Int>, callback: LoadCallback<Int, Listing>) {

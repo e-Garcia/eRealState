@@ -8,6 +8,9 @@ import com.egarcia.assignment.R
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.image_list_item.view.*
 
+/**
+ * Adapter for the horizontal scrollable preview of listing images.
+ */
 class ImageAdapter: RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
 
     private lateinit var mImages : List<String>

@@ -3,8 +3,9 @@ package com.egarcia.assignment.service.model
 /**
  * Class which provides a model for a listing
  * @constructor Sets all properties for this listing
- * @property id the unique identifier for this listing.
+ * @property id a unique String identifier for this listing.
  * ...
+ * @property neighborhood String representing the surrounding area for this listing
  */
 data class Listing(val id: String, val listingType: String, val price: Int, val bathrooms: Float,
                    val squareFeet: Int, val bedrooms: Int,
