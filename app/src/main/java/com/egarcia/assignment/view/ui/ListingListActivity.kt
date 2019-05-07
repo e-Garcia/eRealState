@@ -22,6 +22,7 @@ class ListingListActivity : AppCompatActivity() {
 
     private lateinit var mViewModel : ListingViewModel
     private lateinit var mAdapter : ListingAdapter
+    private lateinit var mSnackBar: Snackbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +39,10 @@ class ListingListActivity : AppCompatActivity() {
         mAdapter = ListingAdapter()
         recyclerView.adapter = mAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
+        loadData()
+    }
 
+    private fun loadData() {
         val listingsLiveData = mViewModel.paginatedListings()
         val loadingLiveData = mViewModel.loadingStatus()
 
@@ -47,11 +51,18 @@ class ListingListActivity : AppCompatActivity() {
         })
 
         loadingLiveData.observe(this, Observer { loadingStatus ->
+            mSnackBar = Snackbar.make(coordinator,
+                    R.string.error_message_generic, Snackbar.LENGTH_INDEFINITE)
+
+            mSnackBar.setAction(R.string.retry) { mViewModel.refresh() }
+
             if (loadingStatus == ERROR) {
-                Snackbar.make(coordinator, R.string.error_message_generic, Snackbar.LENGTH_LONG)
+                mSnackBar.show()
+
+            } else {
+                mSnackBar.dismiss()
             }
         })
-
     }
 
 
